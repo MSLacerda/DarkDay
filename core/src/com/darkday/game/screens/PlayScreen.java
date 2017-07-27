@@ -11,7 +11,7 @@ public class PlayScreen implements Screen {
     public PlayScreen(DarkDay game) {
         this.game = game;
     }
- 
+
 
     @Override
     public void show() {
