@@ -1,14 +1,15 @@
 # DarkDay
 
-Mobile game project, top-to-down.
+    Mobile game project, top-to-down.
 
 ## Prerequisites
-    - LibGDX
-    - Android/Java IDE (e.g. Eclipse, Android Studio, IntellijIDEA)
+    * LibGDX
+    * Android/Java IDE (e.g. Eclipse, Android Studio, IntellijIDEA)
 
-## Getting Started
+## Installing
 
     First, clone the project.
+
     ...
     git clone https://github.com/MSLacerda/DarkDay
     ...
@@ -20,6 +21,7 @@ Mobile game project, top-to-down.
     ...
     Run->Edit Configurations
     ...
+
     Hit the plus icon in the left top side, choose Application, in the field `Name` set Desktop.
     In the field `Use classpath of module` set `desktop`. Set field `Main class`to `DesktopLauncher` and the `Working
     directory` to `android/assets`.
