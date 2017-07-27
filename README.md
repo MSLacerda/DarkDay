@@ -8,11 +8,11 @@ Mobile game project, top-to-down.
 
 ## Installing
 
-**First**, clone the project.
+**First**, clone the project:
 
 >git clone https://github.com/MSLacerda/DarkDay
 
-Open your prefer IDE open a existing project, navigate to projet folder and open builde.gradle.
+Open your prefer IDE open a existing project, navigate to _DarkDay_ project folder and open builde.gradle.
 
 To run, you need to configure:
 In the IntelliJ IDEA:
@@ -23,10 +23,10 @@ In the IntelliJ IDEA:
 In the field `Use classpath of module` set `desktop`. Set field `Main class`to `DesktopLauncher` and the `Working
 directory` to `android/assets`.
 
-Finish and run it.
+Apply and run it.
 
 
-Please for more details visit the libGDX documentation [here](https://github.com/libgdx/libgdx/wiki/):
+Please for more details visit the libGDX documentation [here](https://github.com/libgdx/libgdx/wiki/).
 
 
 
