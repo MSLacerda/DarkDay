@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.darkday.game.screens.PlayScreen;
 
 public class DarkDay extends Game {
+	public static final int V_HEITGH = 208;
+	public static final int V_WIDTH = 400;
 
 	public SpriteBatch batch;
 
@@ -22,5 +24,10 @@ public class DarkDay extends Game {
 	@Override
 	public void render() {
 		super.render();
+	}
+
+	@Override
+	public void dispose() {
+		super.dispose();
 	}
 }
