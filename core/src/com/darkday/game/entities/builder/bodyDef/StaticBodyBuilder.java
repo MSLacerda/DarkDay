@@ -1,0 +1,46 @@
+package com.darkday.game.entities.builder.bodyDef;
+
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.World;
+
+public class StaticBodyBuilder extends BodiesBuilder {
+
+    public StaticBodyBuilder(Sprite sp, World world,Float x, Float y, Float density) {
+        super(sp, world, x, y, density);
+    }
+
+    @Override
+    public void buildDef() {
+        bodyDef.type = BodyDef.BodyType.StaticBody;
+    }
+
+    @Override
+    public void buildPos() {
+        bodyDef.position.set(sprite.getX(), sprite.getY());
+    }
+
+    @Override
+    public void buildInWorld() {
+        body = world.createBody(bodyDef);
+
+    }
+
+    @Override
+    public void buildShape() {
+        shape.setAsBox(x, y);
+    }
+
+    @Override
+    public void buildFixture() {
+        fixtureDef.shape = shape;
+        fixtureDef.density = density;
+        Fixture fixture = body.createFixture(fixtureDef);
+    }
+
+    @Override
+    public void dispose() {
+        shape.dispose();
+    }
+}

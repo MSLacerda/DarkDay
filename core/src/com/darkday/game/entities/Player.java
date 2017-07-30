@@ -20,6 +20,29 @@ public class Player extends Sprite {
     public void update(float delta) {
         // Gravity
         velocity.y -= gravity * delta;
+
+//        test the gravity
+
+        if(velocity.y > speed)
+            velocity.y = speed;
+        else if(velocity.y < speed)
+            velocity.y = -speed;
+
+
+        setX(getX() + velocity.x * delta);
+        setY(getY() + velocity.y * delta);
+
+        int befX = Gdx.input.getX();
+        if(Gdx.input.isTouched()) {
+
+            int x = Gdx.input.getX();
+            if (x < 50){
+                velocity.x += Math.sqrt(x);
+            }
+
+        }
+
+
     }
 
     @Override
