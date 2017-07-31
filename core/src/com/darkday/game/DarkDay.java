@@ -9,15 +9,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.darkday.game.screens.PlayScreen;
 
 public class DarkDay extends Game {
-	public static final int V_HEITGH = 208;
-	public static final int V_WIDTH = 400;
-
 	public SpriteBatch batch;
 
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
-		setScreen(new PlayScreen(this));
+		setScreen(new PlayScreen(this, batch));
 
 	}
 

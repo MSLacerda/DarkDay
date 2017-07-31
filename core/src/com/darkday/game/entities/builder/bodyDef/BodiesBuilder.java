@@ -12,15 +12,18 @@ public abstract class BodiesBuilder {
     PolygonShape shape;
     FixtureDef fixtureDef;
     World world;
-    Sprite sprite;
-    Float x, y, density;
+    Float shapeX, shapeY,positionX, positionY, density;
+    boolean fixedRot;
 
-    public BodiesBuilder(Sprite sp, World world, Float x, Float y, Float density) {
+    public BodiesBuilder(World world, Float positionX, Float positionY, Float shapeX, Float shapeY, Float density, boolean fixedRot) {
         this.world = world;
-        this.sprite = sp;
-        this.x = x;
-        this.y = y;
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.shapeX = shapeX;
+        this.shapeY = shapeY;
         this.density = density;
+        this.fixedRot = fixedRot;
+
 
         bodyDef = new BodyDef();
         shape = new PolygonShape();

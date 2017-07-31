@@ -17,6 +17,7 @@ public class BodyDirector {
         builder.buildInWorld();
         builder.buildShape();
         builder.buildFixture();
+        builder.dispose();
     }
 
     public Body getBody(){

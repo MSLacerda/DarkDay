@@ -1,53 +1,41 @@
 package com.darkday.game.entities;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
+import com.badlogic.gdx.utils.viewport.Viewport;
+import com.darkday.game.configure.ScreenConf;
+import com.darkday.game.configure.WorldConf;
 
-public class Player extends Sprite {
+public class Player {
+
 
     private Vector2 velocity = new Vector2();
+    private Viewport viewport;
+    private Touchpad touchpad;
 
-    private float speed = 60*2, gravity = 60 * 1.8f;
+    private Body body;
 
+    Vector2 temp = new Vector2();
 
-    public Player(Sprite sprite) {
-        super(sprite);
+    public Player(Body body, Viewport viewport, Touchpad touchpad) {
+        this.touchpad = touchpad;
+        this.body = body;
+        this.viewport = viewport;
     }
 
 
-    public void update(float delta) {
-        // Gravity
-        velocity.y -= gravity * delta;
-
-//        test the gravity
-
-        if(velocity.y > speed)
-            velocity.y = speed;
-        else if(velocity.y < speed)
-            velocity.y = -speed;
-
-
-        setX(getX() + velocity.x * delta);
-        setY(getY() + velocity.y * delta);
-
-        int befX = Gdx.input.getX();
-        if(Gdx.input.isTouched()) {
-
-            int x = Gdx.input.getX();
-            if (x < 50){
-                velocity.x += Math.sqrt(x);
-            }
-
-        }
-
-
+    public void update() {
+        int x =0, y= 0;
+        this.body.setLinearVelocity(this.touchpad.getKnobPercentX() * WorldConf.PLAYER_VEL, this.touchpad.getKnobPercentY() * WorldConf.PLAYER_VEL);
     }
 
-    @Override
-    public void draw(Batch batch) {
-        update(Gdx.graphics.getDeltaTime());
-        super.draw(batch);
+    public Vector2 getBodyPosition() {
+        return this.body.getPosition();
     }
 }

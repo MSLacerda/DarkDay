@@ -7,6 +7,7 @@ import com.darkday.game.DarkDay;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.samples = 3;
 		new LwjglApplication(new DarkDay(), config);
 	}
 }

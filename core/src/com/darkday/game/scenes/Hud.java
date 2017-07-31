@@ -12,6 +12,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.darkday.game.DarkDay;
+import com.darkday.game.configure.ScreenConf;
 import org.omg.DynamicAny.DynArray;
 
 public class Hud {
@@ -24,7 +25,7 @@ public class Hud {
 
     public Hud(SpriteBatch sb) {
         countKill = 0;
-        viewport = new FitViewport(DarkDay.V_WIDTH, DarkDay.V_HEITGH, new OrthographicCamera());
+        viewport = new FitViewport(ScreenConf.V_WIDTH, ScreenConf.V_HEIGHT, new OrthographicCamera());
 
         stage = new Stage(viewport, sb);
 

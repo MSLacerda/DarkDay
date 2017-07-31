@@ -7,8 +7,8 @@ import com.badlogic.gdx.physics.box2d.World;
 
 public class StaticBodyBuilder extends BodiesBuilder {
 
-    public StaticBodyBuilder(Sprite sp, World world,Float x, Float y, Float density) {
-        super(sp, world, x, y, density);
+    public StaticBodyBuilder(World world, Float positionX, Float positionY, Float shapeX, Float shapeY, Float density, boolean fixedRot) {
+        super(world, positionX, positionY,shapeX, shapeY, density, fixedRot);
     }
 
     @Override
@@ -18,7 +18,8 @@ public class StaticBodyBuilder extends BodiesBuilder {
 
     @Override
     public void buildPos() {
-        bodyDef.position.set(sprite.getX(), sprite.getY());
+        bodyDef.position.set(positionX, positionY);
+        bodyDef.fixedRotation = this.fixedRot;
     }
 
     @Override
@@ -29,14 +30,17 @@ public class StaticBodyBuilder extends BodiesBuilder {
 
     @Override
     public void buildShape() {
-        shape.setAsBox(x, y);
+
+        shape.setAsBox(this.shapeX/2/32, this.shapeY/2/32);
+
     }
 
     @Override
     public void buildFixture() {
-        fixtureDef.shape = shape;
-        fixtureDef.density = density;
-        Fixture fixture = body.createFixture(fixtureDef);
+        this.fixtureDef.shape = shape;
+        this.fixtureDef.density = density;
+
+        Fixture fixture = body.createFixture(this.fixtureDef);
     }
 
     @Override
